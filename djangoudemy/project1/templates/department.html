@@ -1,0 +1,36 @@
+{% include 'navbar.html' %}
+
+<!-- {% block content %}
+<div class="new_dept_btn"><a href="{% url 'createNewDepartment' %}"><button>Create New Department</button></a></div>
+{% endblock %} -->
+
+<div class="container">
+    <h1 class="mt-5">Departments</h1>
+    <br>
+    <table class="table table-striped">
+        <!-- class="dept_table" align="center" cellpadding="5" cellspacing="5" -->
+           <th>No.</th>
+           <th>Dept_ID</th>
+            <th>Dept_Name</th>
+            <th>Exmas</th>
+            <th>Update Department</th>
+            <th>Delete Department</th>
+    {% for team in qry %}
+    <tr>
+        <td>{{ forloop.counter }}.</td>
+        <td class="text-truncate">{{team.id}}</td> 
+        <td style="font-weight: bold;">{{team.dept_name}}</td>
+        <td><a href="show_exams/{{team.id}}"><button class="btn btn-secondary">Exams</button></a></td>
+        <td><a href="update_department/{{team.id}}"><button class="btn btn-primary">Update Department</button></a></td>
+        <td><a href="delete_department/{{team.id}}"><button class="btn btn-danger">Delete Department</button></a></td>
+    </tr>
+        
+    {% endfor %}
+
+</table>
+<a href="{% url 'createNewDepartment' %}"><button class="btn btn-success  mt-3">Create New Department</button></a>
+</div>
+
+
+    
+    

@@ -1,0 +1,46 @@
+#btn-home{
+box-shadow:2px 7px  rgb(152, 125, 196);
+background-color: rgb(99, 61, 161);
+color: white;
+}
+
+#btn-home:hover{
+    background-color: rgb(62, 35, 105);
+    box-shadow: none;
+}
+
+
+
+.cards {
+    display: contents;
+    flex-wrap: wrap;
+ }
+ 
+.card {
+    flex: 1 0 500px;
+    box-sizing: border-box;
+    margin: 1rem .25em;
+}
+
+
+/* @media screen and (min-width: 40em) {
+    .card {
+       max-width: calc(100% -  1em);
+    }
+} */
+ 
+/* @media screen and (min-width: 60em) {
+    .card {
+        max-width: calc(33.3344% - 1em);
+    }
+} */
+
+
+
+
+/* #content-limit{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+} */

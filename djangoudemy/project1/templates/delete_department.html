@@ -1,0 +1,33 @@
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p>Sure?</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <a href="{% url 'department' %}">Go back</a>
+        <input type="submit" value="Confirm" />
+    </form> -->
+
+
+
+
+    <div class="container mt-5">
+        <div class="alert alert-primary" role="alert">
+            <h4 class="alert-heading">Are You Sure?</h4>
+            <form action=""   method="POST">
+                <div class="container-fluid mb-3 mt-3">
+                    {% csrf_token %}
+                    {{form}}
+                    <a href="{% url 'department' %}"><button class="btn btn-primary">Go back</button></a>
+                    <input type="submit"  class="btn btn-danger" value="Delete">
+                </div></form>
+        </div>
+    </div>
+</body>
+</html>

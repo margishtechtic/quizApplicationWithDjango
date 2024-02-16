@@ -1,0 +1,51 @@
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="container mt-5">
+        <h1 class="mt-5">Exams</h1>
+    <ul>
+        {% for ex in exams %}
+        <li>{{ex.id}}---{{ex.dept_id}}---
+            <button><a href="delete_exam/{{ex.id}}">Delete</a></button>---<button><a href="show_questions/{{ex.id}}">show Questions</a></button>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'newExamCreation' dept %}">create new exam</a>
+    </div> -->
+
+
+
+
+
+
+    <div class="container">
+        <h1 class="mt-5">Departments</h1>
+        <br>
+        <table class="table table-striped">
+            <!-- class="dept_table" align="center" cellpadding="5" cellspacing="5" -->
+               <th>No.</th>
+               <th>Exam_ID</th>
+                <th>Questions</th>
+                <th>Delete Department</th>
+        {% for ex in exams%}
+        <tr>
+            <td>{{ forloop.counter }}.</td>
+            <td class="text-truncate">{{ex.id}}</td> 
+            <td style="font-weight: bold;"><a href="show_questions/{{ex.id}}"><button class="btn btn-secondary">Show Questions</button></a></td>
+            <td><a href="delete_exam/{{ex.id}}"><button class="btn btn-danger">Delete Exam</button></a></td>
+        </tr>
+            
+        {% endfor %}
+    
+    </table>
+    <a href="{% url 'newExamCreation' dept %}"><button class="btn btn-success  mt-3">Create New Exam</button></a>
+    </div>
+    
+</body>
+</html>
