@@ -1,0 +1,83 @@
+<!-- 
+If you want to trigger an event when a radio button is checked (i.e., when the user selects it), you can use the onchange event handler in HTML. Here's how you can modify the previous example to use the onchange event:
+
+HTML:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button Example</title>
+</head>
+<body>
+    <form>
+        <label>
+            <input type="radio" name="option" value="option1" onchange="showValue(this)"> Option 1
+        </label><br>
+        <label>
+            <input type="radio" name="option" value="option2" onchange="showValue(this)"> Option 2
+        </label><br>
+        <label>
+            <input type="radio" name="option" value="option3" onchange="showValue(this)"> Option 3
+        </label><br>
+    </form>
+    <div id="result"></div>
+
+    <script> 
+      function showValue(radio) {
+    var selectedValue = radio.value;
+    document.getElementById("result").textContent = "Selected Value: " + selectedValue;
+}
+          </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unique IDs Navigation</title>
+    <script>
+        var uniqueIds  = `{{ question|safe }}` // Your list of unique IDs
+        var currentPointer = 0; // Initial pointer
+
+        console.log(uniqueIds)
+        console.log(typeof(uniqueIds))
+
+        function showCurrentId() {
+            document.getElementById("uniqueId").innerText = uniqueIds[currentPointer];
+        }
+
+        function next() {
+            currentPointer = (currentPointer + 1) % uniqueIds.length;
+            showCurrentId();
+        }
+
+        function previous() {
+            currentPointer = (currentPointer - 1 + uniqueIds.length) % uniqueIds.length;
+            showCurrentId();
+        }
+
+        window.onload = showCurrentId;
+    </script>
+</head>
+<body>
+    <h1>Unique ID: <span id="uniqueId"></span></h1>
+    <button onclick="previous()">Previous</button>
+    <button onclick="next()">Next</button>
+</body>
+</html>
+
+
+
+
+pre_list = []
+        que = Questions.objects.get(id = atmp.que_id.id)
+        pre_list.append(que)
+        pre_list.append(atmp.attempted)
+        pre_list.append(atmp.stu_ans)
+        pre_list.append(atmp.is_ans_true)
+        student_preview.append(pre_list)

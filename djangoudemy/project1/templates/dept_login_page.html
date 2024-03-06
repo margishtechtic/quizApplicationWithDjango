@@ -1,0 +1,83 @@
+{% extends 'navbar.html' %}
+
+{% block content_msg %}
+{% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <div class="alert alert-{{message.tags}}" role="alert">
+        <div{% if message.tags %} class="{{ message.tags }} font-weight-bold"{% endif %} >{{ message }}
+          <!-- <button class="btn alert-close"><b style="color: rgb(61, 2, 2);">X</b></button> -->
+        </div>
+        
+      </div>
+      {% endfor %}
+  </ul>
+{% endif %}
+<!-- <style>
+  .alert > .alert-close {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: transparent;
+  font-size: 2rem;
+  transition: var(--generic-transition);
+}
+
+.alert > .alert-close:hover {
+  opacity: 0.85;
+}
+</style> -->
+
+<script>
+
+let alertWrapper = document.querySelector('.alert')
+let alertClose = document.querySelector('.alert-close')
+
+if (alertWrapper) {
+  alertClose.addEventListener('click', () =>
+    alertWrapper.style.display = 'none'
+  )
+}
+</script>
+{% endblock content_msg %}
+    
+
+{% block content2 %}
+        <div class="container h-custom ">
+          <h1 class="text-center my-5 mx-5">Department Login</h1>
+          <div class="row d-flex justify-content-center align-items-center h-120 my-5 ">
+            <div class="px-0 ml-5 col-lg-6 col-xl-5 pl-0">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                class="img-fluid" alt="Sample image">
+            </div>
+            <div class="px-0 mr-5 col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+              <form action="" method="POST" >
+                  {% csrf_token %}
+                <!-- Username input -->
+                <div class="form-outline mb-4 form-floating">
+                  <input type="name" id="form3Example3" name="username" class="form-control form-control-lg"
+                    placeholder="Enter Username" /> 
+                  <label class="form-label font-weight-bold" for="form3Example3">Username</label>
+                </div>
+      
+                <!-- Password input -->
+                <div class="form-outline mb-0">
+                  <input type="password" id="form3Example4" name="password" class="form-control form-control-lg"
+                    placeholder="Enter password" />
+                  <label class="form-label font-weight-bold" for="form3Example4">Password</label>
+                </div>
+      
+                
+              
+
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <button type="submit" class="btn btn-primary btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                  <!-- <p class="large fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#"
+                      class="link-danger">Register</a></p> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+{% endblock content2 %}

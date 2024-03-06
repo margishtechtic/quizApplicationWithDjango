@@ -1,0 +1,38 @@
+{% include 'navbar.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="column justify-content-center mt-5 ml-5">
+            <table>
+                <tr>
+                    <td><label class="font-weight-bold mr-5">Name:</label></td>
+                    <td>{{student.name}}</td>
+                </tr>
+                <tr>
+                    <td><label  class="font-weight-bold mr-5">Email:</label></td>
+                    <td>{{student.email}}</td>
+                </tr>
+                <tr>
+                    <td><label class="font-weight-bold mr-5">Contact:</label></td>
+                    <td>{{student.contact}}</td>
+                </tr>
+                <tr>
+                    <td><label  class="font-weight-bold mr-5">Exam code:</label></td>
+                    <td>{{student.exam_code}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="column justify-content-center mt-5 ml-5">
+            <a href="questions"><button class="btn btn-lg" id="btn-home">Start Quiz</button></a>
+        </div>
+    </div>
+
+</body>
+</html>

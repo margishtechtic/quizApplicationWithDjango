@@ -11,15 +11,16 @@
     <div class="container mt-5">
         <div class="alert alert-primary" role="alert">
             <h4 class="alert-heading">Are You Sure?</h4>
-            <form action=""   method="POST">
+            <form action="" method="POST">
                 <div class="container-fluid mb-3 mt-3">
                     {% csrf_token %}
                     {{form}}
-                    <a href="http://127.0.0.1:8000/department/show_exams/{{dept_id}}"><button class="btn btn-primary">Go back</button></a>
-                    <input type="submit"  class="btn btn-danger" value="Delete">
+                    <a href="http://127.0.0.1:8000/department/show_exams/{{dept_id}}"><button name="goback" class="btn btn-primary">Go back</button></a>
+                    <input type="submit"  class="btn btn-danger" value="Delete" name="delete">
                 </div></form>
         </div>
     </div>
+    
     <!-- <form action=""   method="POST">
         <div class="container-fluid mb-3 mt-3">
             {% csrf_token %}

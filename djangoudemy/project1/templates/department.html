@@ -1,9 +1,20 @@
-{% include 'navbar.html' %}
 
-<!-- {% block content %}
-<div class="new_dept_btn"><a href="{% url 'createNewDepartment' %}"><button>Create New Department</button></a></div>
-{% endblock %} -->
+{% extends 'navbar.html' %}
 
+{% block content_msg %}
+{% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <div class="ml-3 mt-2 alert alert-{{message.tags}}" role="alert">
+        <div{% if message.tags %} class="{{ message.tags }} font-weight-bold"{% endif %} >{{ message }}</div>
+      </div>
+      
+      {% endfor %}
+  </ul>
+{% endif %}
+{% endblock content_msg %}
+
+{% block content2 %}
 <div class="container">
     <h1 class="mt-5">Departments</h1>
     <br>
@@ -16,7 +27,7 @@
             <th>Update Department</th>
             <th>Delete Department</th>
     {% for team in qry %}
-    <tr>
+    <tr>    
         <td>{{ forloop.counter }}.</td>
         <td class="text-truncate">{{team.id}}</td> 
         <td style="font-weight: bold;">{{team.dept_name}}</td>
@@ -30,6 +41,8 @@
 </table>
 <a href="{% url 'createNewDepartment' %}"><button class="btn btn-success  mt-3">Create New Department</button></a>
 </div>
+
+{% endblock content2 %}
 
 
     

@@ -1,0 +1,57 @@
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="centered">
+            <section class="cards">
+                <article class="card container ">
+                    <div class="container-fluid d-flex  text-break"><h5 class="mr-2 mt-0 bg p-3" id="content-limit">  {{ index }}. {{ question.questions }} </h5>
+                    </div>
+
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <ul type="none" class="my-0">
+                            {% for opt in question.options.values %}
+                            
+                            <li class="mb-1"><input type="radio" value="{{ forloop.counter }}" name="options" class="custom-radio">{{ opt }}</li>
+                            
+                            
+                            {% endfor %}
+                        </ul>
+
+                        <div class="container-fluid d-flex justify-content-end mb-1 pr-5">
+                            <button class="btn btn-success btn-lg mr-2" type="submit" name="previous">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                </svg>
+                            </button>
+
+                            <button class="btn btn-success btn-lg"  type="submit" name="next">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                </svg>
+                            </button>
+
+                            
+
+                        </div>
+                    </form>
+                </article>
+            </section>
+
+            <div class="text-right mr-1 ">
+           <a href="{% url 'student_result' stu_id exam_code %}"><button class="mr-5 mt-2 btn btn-secondary btn-lg"  name="submit">Finish & Submit</button></a> 
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

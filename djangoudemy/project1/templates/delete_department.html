@@ -24,8 +24,8 @@
                 <div class="container-fluid mb-3 mt-3">
                     {% csrf_token %}
                     {{form}}
-                    <a href="{% url 'department' %}"><button class="btn btn-primary">Go back</button></a>
-                    <input type="submit"  class="btn btn-danger" value="Delete">
+                    <a href="{% url 'department' %}"><button type="submit" name="goback" class="btn btn-primary">Go back</button></a>
+                    <input type="submit"  class="btn btn-danger" name="delete" value="Delete">
                 </div></form>
         </div>
     </div>

@@ -1,12 +1,5 @@
-{% include 'navbar.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'navbar.html' %}
+
     <!-- <h1>the question is created with exam_id --{{exam_id}} and dept_id ---{{dept_id}}</h1> -->
     <!-- <h1>Questions</h1>
     <ul>
@@ -23,14 +16,27 @@
 
 
 
+     {% block content1 %}
+     <div class="nav-item navbar-right mr-5">
+      <a href="{% url 'dept-logout' %}"><button class="btn btn-primary  justify-content-end">Logout</button></a>
+    </div>
 
-     <div class="container mt-5">
-        <div class="text-right">
-            <a href="createQuestion"><button class="btn btn-success "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-              <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
-            </svg> New Question</button></a>
-          </div>
-        
+     {% endblock content1 %}
+     
+
+
+
+
+{% block content2 %}
+
+<div class="container">
+  <div class="text-right  mt-3">
+      <a href="createQuestion"><button class="btn btn-success "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
+      </svg> New Question</button></a>
+    </div>
+
+
         <h1>Questions</h1>
 
         
@@ -60,13 +66,17 @@
             </div>
                
                <hr> 
-               <ol type="A">
+               <ul type="none">
                 {% for opt in que.options.values %}
-        
-                <li><strong>{{que.true_option}} -{{forloop.counter}}</li>
+                {% if que.true_option == forloop.counter %}
+                <li><strong style="color: green; font-size:larger;">{{ forloop.counter }}. {{ opt }}</strong></li>
+                {% else %}
+                <li> {{ forloop.counter }}. {{ opt }}</li>
+                {% endif %}
             
                 {% endfor %}
-               </ol>
+               </ul>
+
 
               </article>
                {% endfor %}
@@ -75,6 +85,7 @@
 </div>
 
      </div>
+    
 
-</body>
-</html>
+
+     {% endblock content2 %} 

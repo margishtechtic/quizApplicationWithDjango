@@ -11,6 +11,7 @@
 </head>
 <body>  
 
+  
 
     <nav class="navbar navbar-expand-md bg-light">
 
@@ -19,9 +20,28 @@
             <li class="nav-item">
                 <a href="http://127.0.0.1:8000/"><img src="{% static 'image/main_logo1.svg' %}" alt="quiz_logo" class="main_logo"></a>
             </li>
+            
           </ul>
+          {% url 'department' as the_url %}
+            {% if request.get_full_path == the_url %}
+            <div class="nav-item navbar-right mr-5">
+              <a href="{% url 'dept-logout' %}"><button class="btn btn-primary  justify-content-end">Logout</button></a>
+            </div>
+            {% endif %}
+
+         
+            {% block content1 %}
+            {% endblock content1 %}
         </div>
-      
     </nav>
+  
+    <div class="container">
+      <div class="inline-flex justify-content-end p-2 bd-highlight text-center">{% block content_msg %}
+        {% endblock content_msg %}</div>
+    </div>
+    
+
+    {% block content2 %}
+    {% endblock content2 %}
 </body>
 </html>

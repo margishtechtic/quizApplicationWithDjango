@@ -8,6 +8,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>new exam created for {{a}}</h1>
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-10 col-md-8 col-lg-6">
+                <form  method="POST" class="form-example">  
+                    {% csrf_token %}
+
+                    {{form}}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
